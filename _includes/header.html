@@ -1,0 +1,27 @@
+<div class="header-container container">
+    <header>
+        <a href="{{ site.url }}" class="top-link">{{ site.name }}</a>
+        <div style="display:flex">
+            <ul class="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+            <div style="flex-grow:1;text-align:right">
+                {% if page.layout != 'default' %}
+                    {% assign posts=site.posts | where:"lang-ref", page.lang-ref %}
+                {% endif %}
+                {% if posts.size > 1 %}
+                    {% assign post-fr=posts | find:"lang", "fr" %}
+                    {% assign post-en=posts | find:"lang", "en" %}
+                    <footer class="lang-options">
+                        {% if page.lang == 'fr' %}
+                            <em>Aussi disponible en <a href="{{ site.base-url }}{{ post-en.url }}">English</a></em>
+                        {% else  %}
+                            <em>Also available in <a href="{{ site.base-url }}{{ post-fr.url }}">Français</a></em>
+                        {% endif %}
+                    </footer>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+</div>

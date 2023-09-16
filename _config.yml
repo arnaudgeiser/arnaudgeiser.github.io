@@ -1,0 +1,11 @@
+name: Arnaud Geiser
+description: >
+    Arnaud Geiser - Random thoughts
+markdown: kramdown
+highlighter: rouge
+destination: docs
+url: https://arnaudgeiser.github.io
+
+plugins: ['jekyll-paginate', 'jekyll-gist', 'jekyll-feed']
+
+paginate: 10
